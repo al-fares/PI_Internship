@@ -1,0 +1,7 @@
+SELECT MAX(freq.frequency), u.username, u.emailaddress FROM 
+	(SELECT COUNT(usertId) as frequency,
+			userId
+	FROM i_user_login_logs
+	GROUP BY usertId) freq
+    JOIN i_users u ON freq.userId = u.userid
+WHERE u.username != "Administrator" 

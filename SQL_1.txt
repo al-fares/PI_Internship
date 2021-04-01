@@ -1,0 +1,5 @@
+SELECT COUNT(frequency) as Result FROM 
+	(SELECT COUNT(usertId) as frequency
+	FROM i_user_login_logs
+	GROUP BY usertId) freq
+WHERE frequency > 3
